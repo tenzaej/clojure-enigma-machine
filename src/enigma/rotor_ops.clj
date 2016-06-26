@@ -24,3 +24,10 @@
   [(set-ground \K (rotor-vector 0)),
    (set-ground \C (rotor-vector 1)),
    (set-ground \M (rotor-vector 2))])
+
+(defn set-ground-all
+  "Ground all rotors to a given set of positions"
+  [rotor-vector position-vector]
+  [(set-ground (position-vector 0) (rotor-vector 0))
+   (set-ground (position-vector 1) (rotor-vector 1))
+   (set-ground (position-vector 2) (rotor-vector 2))])

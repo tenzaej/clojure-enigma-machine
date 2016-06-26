@@ -74,14 +74,17 @@
   (reverse (map :alphabet rotors)))
 
 (defn rotor-windows
+  "Returns the characters occupying the 'window position' of each wheel."
   [wheel]
   (map first (rotor-position wheel)))
 
-(defn translate-rotor [string rotatoes]
-  (loop [remaining-letters  (rest (validate-str string))
-         encoded-letters    []
-         rotors             (step rotatoes)]
-    (if-not (seq remaining-letters)
-      (rotor-windows rotors)
-      (let [[first-char & rest] remaining-letters]
-        (recur rest (conj encoded-letters (single-lap first-char rotors)) (step rotors))))))
+;; (defn translate-rotor [string rotatoes]
+;;   "Repeats the translate-string function, but instead returns the ending state of the rotors"
+;;   (loop [remaining-letters  (rest (validate-str string))
+;;          encoded-letters    []
+;;          rotors             (step rotatoes)]
+;;     (if-not (seq remaining-letters)
+;;       (rotor-windows rotors)
+;;       (let [[first-char & rest] remaining-letters]
+;;         (recur rest (conj encoded-letters (single-lap first-char rotors)) (step rotors))))))
+
