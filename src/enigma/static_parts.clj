@@ -26,10 +26,9 @@
                 :wheel (rotor/disc-into-wheel disc-1),
                 :notch \Q} )
 
-; ground rotors to their defaults of K C M
 (def grounded-rotors
+  "Grounds rotors to their defaults of K C M"
  (rotor/ground-all [right-rotor center-rotor left-rotor]))
 
-
-; parts - static parts
-; rotor - rotor ops
+(def rotor-atom
+  (atom (rotor/ground-all [right-rotor center-rotor left-rotor])))
